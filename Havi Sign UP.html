@@ -1,0 +1,256 @@
+<html>
+<head>
+ <title>Havi Sign UP</title>   
+<style>
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="checkbox"],
+input[type="submit"],
+input[type="reset"],
+input[type="password"],
+input[type="conf.pwd"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+
+
+  form {
+    max-width: 480px;
+  }
+
+}
+</style>
+ <script type="text/javascript">
+ function validateForm()
+  {
+      var name=document.getElementById("Name").value;
+      var age=document.getElementById("Age").value;
+      var gender= document.getElementsByName("gender");
+      var x=document.getElementById("e").value;
+	  var uid=document.getElementById("UID").value;
+      var pwd=document.getElementById("PWD").value; 
+      var cpwd=document.getElementById("CPWD").value;
+	  var no=document.getElementById("phone").value;
+       var letters = /^[A-Ca-c]+$/;
+	   var yop=document.getElementById("year").value;
+	   var strUser = e.options[e.selectedIndex].value;
+      var regularExpression = /^(?=.*[\d])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,16}$/;
+     
+	   
+	   
+	  if(name=="")
+      {
+          alert("Name field empty");
+	      Name.focus();
+          return false;
+	  }
+      else
+      {
+          for(i=0;i<name.length;i++)
+		  {
+          if(!((name.charAt(i)>='a'&&name.charAt(i)<='z')||(name.charAt(i)>='A'&&name.charAt(i)<='Z')))
+		  {
+              alert("enter alphabets only in name field");
+	          document.getElementById("Name").value="";
+    	      Name.focus();
+			  return false;
+	      }
+		  }
+      }
+	  if(name.length<5)
+	  {
+          alert("username size should be >5");
+          document.getElementById("Name").value="";
+	      Name.focus();
+          return false;
+	  }
+	  if(age=="")
+      {
+	    alert("Age field empty");
+	    Age.focus();   
+		return false;
+	  }
+	  if(age<18||age>120)
+      {
+        alert("Should be at least 18 year old ");
+	    Age.focus();    
+	    return false;
+	  }
+	  else
+	  {
+      for(i=0;i<age.length;i++)
+	  {
+      if(!(age.charAt(i)>='0'&&age.charAt(i)<='9'))
+      {
+        alert("enter  number only in age field");
+        Age.focus();   
+		return false;  
+      }
+	  }
+   }
+    if ( (gender[0].checked == false ) && ( gender[1].checked == false ) ) 
+    {
+        alert ( "Please choose your Gender: Male or Female" ); 
+        return false;
+	}
+	
+	if(x=="")
+    {
+        alert("email field empty");
+        return false;
+   }
+    if(no=="")
+   {
+       alert("phone field empty");
+       return false;
+   }
+    if(no.length>10||no.length<10)
+   {
+       alert("invalid phone number");
+       return false;
+   }
+   else
+   {
+      for(i=0;i<no.length;i++)
+	  {
+      if(!(no.charAt(i)>='0'&&no.charAt(i)<='9'))
+      {
+          alert("enter   only numbers in phone field");
+          return false;
+	  }
+	  }
+	     if(pwd=="")
+    {
+        alert("password field is empty")
+        PWD.focus()
+        return false;
+	}
+   if (!regularExpression.test(pwd))
+   {
+       alert("enter pwd with minimum one number,special symbol and 8 or more characters")
+       PWD.focus();
+       return false;
+	}
+    document.getElementById("right_password").innerHTML = 'Strong Password';
+    if (cpwd=="")
+    {
+        alert("please confirm your password");
+        CPWD.focus();
+        return false;
+	}
+    if(cpwd!=pwd)
+    {
+        alert("not matching , please enter right passowrd")
+        CPWD.focus();
+        return false;
+	} 
+ //   alert ("validation success")
+   // return true;
+ 
+   }
+	
+  
+</script>
+
+</head>
+<body>
+<center>
+
+<table border="0" bgcolor="White">
+<form  name="UserReg" action="Login.html" method="post"  onSubmit="return validateForm()"> 
+
+   <tr><h1>Sign Up Form</H1>
+       <td height="28" align="right">Name :&nbsp;</td>
+       <td height="28"><input type="text"  id="Name" size="25" required  /></td> 
+   </tr>
+   <tr>
+       <td height="28"  align="right">Email_id :&nbsp;</td>
+      <td height="28"><input type="text" id="e" size="25" required /></td>
+  </tr>
+    <tr>
+       <td height="28"  align="right">Age  :&nbsp;</td>
+      <td height="28"><input type="text" id="Age" size="25" required /></td>
+  </tr>
+ <tr>
+       <td height="28"  align="right">Gender  :&nbsp;</td>
+      <td height="28"><input type="radio" name="gender" value="male"> Male
+	 <input type="radio" name="gender" value="female"> Female</td>
+  </tr>
+  
+  <tr>
+       <td height="28"  align="right">Mob_No  :&nbsp;</td>
+      <td height="28"><input type="text" id="phone" size="25" required /><td>
+  </tr>
+  
+  <tr>
+       <td height="28"  align="right">Date of Birth: </td>
+      <td height="28"><input type="date" size="25" placeholder="dd/mm/yyyy" name="startdate"></td> 
+  </tr>
+  <tr>
+       <td height="28"  align="right">Username :&nbsp;</td>
+      <td height="28"><input type="text" id="UID" size="25"  /><td>
+  </tr>
+<tr>
+       <td height="28" align="right">Password  :&nbsp;<div id="right_password" ></div</td>
+      <td height="28"><input type="password" id="PWD" size="25"  /><td>
+  </tr>
+<tr>
+       <td height="28"  align="right">Conf.Pwd  :&nbsp;</td>
+      <td height="28"><input type="password" id="CPWD" size="25"  /><td>
+  </tr>
+  <tr>
+       <td height="35"></td>
+       <td height="35"><input type="submit" value="Sign Up" name="UserSigUp"  /></td> 
+	<td height="35"></td>
+       <td height="35"><input type="reset" value="Reset" name="reset"  /></td>
+   </tr>
+</form>
+</table>
+</center>
+</body>
+</html>

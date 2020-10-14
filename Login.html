@@ -1,0 +1,119 @@
+<html>
+<head>
+ <title>Login</title>   
+<style>
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="checkbox"],
+input[type="submit"],
+input[type="reset"],
+input[type="password"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+
+
+  form {
+    max-width: 480px;
+  }
+
+}
+</style>
+ <script type="text/javascript">
+ function validateForm()
+  {
+          var x=document.getElementById("e").value;
+      var pwd=document.getElementById("PWD").value; 
+    
+      var regularExpression = /^(?=.*[\d])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,16}$/;
+	    if
+   {
+        var atpos=x.indexOf("@");
+        var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+        {
+            alert("Not a valid e-mail address");
+            return false;
+    }
+	   
+   }
+	return  true;
+   }
+	
+  
+</script>
+
+</head>
+<body>
+<center>
+
+<table border="0" bgcolor="White">
+<form  name="UserReg" action="list.html" method="post" return validateForm() > 
+
+   <tr><h1>Log In</H1>
+      
+   </tr>
+   <tr>
+       <td height="28"  align="right">Email_id :&nbsp;</td>
+      <td height="28"><input type="text" id="e" size="25" required /></td>
+  </tr>
+    <tr>
+       <td height="28" align="right">Password  :&nbsp;<div id="right_password" ></div</td>
+      <td height="28"><input type="password" id="PWD" size="25" required /><td>
+  </tr>
+  <tr>
+       <td height="35"></td>
+       <td height="35"><input type="submit" value="Login" name="UserSigUp"  /></td> 
+	<td height="35"></td>
+       <td height="35"><input type="reset" value="Reset" name="reset"  /></td>
+   </tr>
+</form>
+</table>
+</center>
+</body>
+</html>
